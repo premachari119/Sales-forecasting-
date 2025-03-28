@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="header">
+    <h1>About Us</h1>
+</div>
+<div class="container">
+    <div class="content">
+        <h2>Welcome to Our Application</h2>
+        <p>Our application is designed to help you manage and visualize data effectively. We aim to provide the best user experience with a focus on simplicity and functionality.</p>
+        
+        <h3>Features</h3>
+        <ul>
+            <li>Real-time data management</li>
+            <li>Interactive charts and reports</li>
+            <li>Seamless integration with various data sources</li>
+        </ul>
+        
+        <h3>About the Team</h3>
+        <p>We are a dedicated team of developers and data analysts working together to create a powerful tool for data analysis and visualization.</p>
+    </div>
+    
+    <div class="back-button">
+        <a href="{% url 'dashboard' %}">&#9664; Back to Dashboard</a>
+    </div>
+</div>
+{% endblock %}

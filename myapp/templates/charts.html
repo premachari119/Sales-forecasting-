@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Sales Data</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .chart-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .chart {
+            width: 48%;
+            height: 400px;
+            margin: 1%;
+        }
+        #lineChart {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Top Sales by Store</h1>
+    
+    {% if error %}
+    <p>Error: {{ error }}</p>
+    {% else %}
+    <div class="chart-container">
+        <div class="chart">
+            <div id="pieChart"></div>
+        </div>
+        <div class="chart">
+            <div id="barChart"></div>
+        </div>
+    </div>
+    <div id="lineChart"></div>
+
+    <script>
+        // Data for Pie Chart
+        var pieChartData = {{ pie_chart_data | safe }};
+        var pieData = [{
+            values: pieChartData.values,
+            labels: pieChartData.labels,
+            type: 'pie'
+        }];
+        var pieLayout = {
+            title: 'Sales Distribution by Region',
+            height: 400,
+            width: 500
+        };
+        Plotly.newPlot('pieChart', pieData, pieLayout);
+
+        // Data for Bar Chart
+        var barChartData = {{ bar_chart_data | safe }};
+        var barData = [{
+            x: barChartData.x,
+            y: barChartData.y,
+            type: 'bar'
+        }];
+        var barLayout = {
+            title: 'Sales by Month',
+            xaxis: {
+                title: 'Month'
+            },
+            yaxis: {
+                title: 'Sales'
+            },
+            height: 400,
+            width: 500
+        };
+        Plotly.newPlot('barChart', barData, barLayout);
+        
+        // Data for Line Chart
+        var lineChartData = {{ line_chart_data | safe }};
+        var lineData = [{
+            x: lineChartData.x,
+            y: lineChartData.y,
+            type: 'scatter',
+            mode: 'lines+markers'
+        }];
+        var lineLayout = {
+            title: 'Sales Over Time',
+            xaxis: {
+                title: 'Date'
+            },
+            yaxis: {
+                title: 'Sales'
+            },
+            height: 400,
+            width: 700
+        };
+        Plotly.newPlot('lineChart', lineData, lineLayout);
+    </script>
+    {% endif %}
+</body>
+</html>

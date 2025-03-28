@@ -1,0 +1,96 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #faf4f0;
+    background-image: url("{% static 'images/sales.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Ensure the background covers the full height of the viewport */
+}
+
+/* Header styles */
+header {
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Navigation styles */
+nav {
+    background-color: transparent; /* Remove background color */
+    padding: 10px; /* Optional padding for space around items */
+    border-radius: 8px; /* Optional rounded corners */
+}
+
+nav ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: left; /* Align items to the left */
+    flex-wrap: wrap; /* Allow items to wrap to next line if needed */
+}
+
+nav ul li {
+    margin: 0 10px; /* Space between items */
+}
+
+nav a {
+    color: #0d0d0d; /* Text color for links */
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block; /* Ensures padding is applied correctly */
+    border-radius: 5px; /* Rounded corners for links */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+nav a:hover {
+    background-color: #d49c9c; /* Light background color on hover */
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.table-container {
+    margin: 20px auto; /* Center the table with margin */
+    padding: 20px; /* Add padding around the table */
+    max-width: 90%; /* Ensure the table doesn't exceed the width of the page */
+    border-radius: 10px; /* Optional: rounded corners for the container */
+    background-color: #f9f9f9; /* Optional: background color for the container */
+}
+
+.sales-table {
+    width: 100%;
+    border-collapse: collapse; /* Merge borders of adjacent cells */
+}
+
+.sales-table th, .sales-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Border between rows */
+}
+
+.sales-table th {
+    background-color: #f2f2f2; /* Slightly different color for the header */
+    font-weight: bold; /* Ensure header text is bold */
+}
+
+.sales-table tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+/* Footer styles */
+footer {
+    background-color: #856565;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
